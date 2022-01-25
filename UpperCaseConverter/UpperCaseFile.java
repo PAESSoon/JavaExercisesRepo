@@ -47,12 +47,24 @@ public class UpperCaseFile {
 				i++;
 			}
 
-			String characterName = inputFromBuffer[0];
+			String userInput = inputFromBuffer[0];
 
 			// constructs a Character instance
-			System.out.println(characterName);
+			System.out.println("Before conversion: " + userInput);
 
 			i = 0;
+			
+			for (int j = 0; j < userInput.length(); j++) {
+				
+				
+				
+				if(userInput.charAt(j) != 'a' && userInput.charAt(j) != 'e' && userInput.charAt(j) != 'i' && userInput.charAt(j) != 'o' && userInput.charAt(j) != 'u') {
+					userInput = userInput.replace(userInput.charAt(j), Character.toUpperCase(userInput.charAt(j)));
+					System.out.println("userInput.charAt(j): " + userInput.charAt(j));
+				}
+			}
+			
+			System.out.println("After conversion: " + userInput);
 
 		} catch (FileNotFoundException e) {
 
