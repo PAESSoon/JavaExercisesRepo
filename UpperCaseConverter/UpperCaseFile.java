@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class UpperCaseFile {
 	private static String fileRead;
@@ -12,23 +13,22 @@ public class UpperCaseFile {
 
     public static void main(String[] args) {
     	
-    	UpperCaseFile result = new UpperCaseFile("upperCase.txt", "lowerCase.txt");
-    	convertToUpperCase();
+	    	UpperCaseFile result = new UpperCaseFile("upperCase.txt", "lowerCase.txt");
+	    	convertToUpperCase();
     	
     }
     
     
     public UpperCaseFile(String fileR, String fileW) {
     	
-    	this.fileRead = fileR;
-    	this.fileWrite = fileW;
+	    	this.fileRead = fileR;
+	    	this.fileWrite = fileW;
     }
     
     public static void convertToUpperCase() {
     	
-    	BufferedReader br = null;
-    	BufferedWriter bw = null;
-//    	FileWriter(String filename, boolean append);
+	    	BufferedReader br = null;
+	    	BufferedWriter bw = null;
 
 		try {
 
@@ -42,16 +42,17 @@ public class UpperCaseFile {
 
 			String strInput;
 
-			String[] inputFromBuffer = new String[5];
+			ArrayList<String> inputFromBuffer = new ArrayList<String>();
 
 			int i = 0;
 
 			while ((strInput = br.readLine()) != null) {
 
-				inputFromBuffer[i] = strInput;
-
+				inputFromBuffer.add(strInput);
 				
-				String userInput = inputFromBuffer[i];
+				String userInput = inputFromBuffer.get(i);
+				
+//				System.out.println("Before conversion: " + i + " " + userInput);
 				
 				for (int j = 0; j < userInput.length(); j++) {
 					
@@ -59,13 +60,11 @@ public class UpperCaseFile {
 					
 					if(userInput.charAt(j) != 'a' && userInput.charAt(j) != 'e' && userInput.charAt(j) != 'i' && userInput.charAt(j) != 'o' && userInput.charAt(j) != 'u') {
 						userInput = userInput.replace(userInput.charAt(j), Character.toUpperCase(userInput.charAt(j)));
-//						System.out.println("userInput.charAt(j): " + userInput.charAt(j));
+						
 					}
 				}
 
 				bw.write(userInput + "\n");
-				
-				System.out.println("After conversion: " + i + " " + userInput);
 				
 				i++;
 			}
