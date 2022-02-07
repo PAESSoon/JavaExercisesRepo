@@ -1,5 +1,5 @@
-Copyright 2022 Pamela Sam-Soon
+@author Pamela
 
 # JavaExercisesRepo
 
-A compilation of my uni projects written in Java.
+A compilation of my projects written in Java.
